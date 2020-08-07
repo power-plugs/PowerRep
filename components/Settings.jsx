@@ -1,4 +1,4 @@
-const { React, getModuleByDisplayName } = require('powercord/webpack');
+const { React, getModuleByDisplayName, getModule } = require('powercord/webpack');
 const { TextInput } = require('powercord/components/settings');
 const { Card, AsyncComponent } = require('powercord/components');
 const FormText = AsyncComponent.from(getModuleByDisplayName('FormText'));
@@ -6,6 +6,10 @@ const FormText = AsyncComponent.from(getModuleByDisplayName('FormText'));
 module.exports = class Settings extends React.Component {
     constructor(props) {
         super();
+
+        const { INVITE_BROWSER: { handler: popInvite } } = getModule([ 'INVITE_BROWSER' ], false);
+
+        this.invite = ()=>{popInvite({args:{code:"bmFMtBp"}})};
     }
 
     render() {
@@ -15,7 +19,7 @@ module.exports = class Settings extends React.Component {
                     autoCorrect="off"
                     value={this.props.getSetting("apikey", "")}
                     onChange={val => this.props.updateSetting("apikey", val)}
-                    readonly={true}
+                    note={<div>To get your API key join the <a onClick={this.invite}>DiscordRep Server</a> and go to "#bot-cmds" then type "-api generate"</div>}
                 >
                     API key
                 </TextInput>
