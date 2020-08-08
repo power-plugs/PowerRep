@@ -1,9 +1,16 @@
 # PowerRep
+
+## Note
+This plugin **IS** against DiscordRep's guidelines as you need a modded client to use it.
+
+Don't ask DiscordRep for support about this **UNOFFICIAL** plugin. You will most likely get banned.
+
+## Description
 View users' DiscordRep profile in-client with this simple powercord plugin.
 
 Preview:
 
 ![](https://i.pxl.blue/e1E7A1a.png)
 
-# Credits
+## Credits
 Most of the UI stuff: NurMarvin/Ser Ames ([Discord Bio](https://github.com/Ser-Ames/discord-bio))
