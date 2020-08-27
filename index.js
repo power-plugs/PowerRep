@@ -43,7 +43,7 @@ module.exports = class PowerRep extends Plugin {
   async fetchRep(id) {
     return await get(`https://discordrep.com/api/v3/rep/${id}`)
       .set("Authorization", this.settings.get("apikey"))
-      .then(r => r.body);
+      .then(r => {this.log(r.body);return r.body});
   }
 
    async _patchUserProfile() {

@@ -3,13 +3,6 @@ const { Spinner, Text, Flex } = require('powercord/components');
 const AsyncComponent = require('powercord/components/AsyncComponent');
 
 const FormSection = AsyncComponent.from(getModuleByDisplayName('FormSection'));
-const Anchor = AsyncComponent.from(getModuleByDisplayName('Anchor'));
-
-const VerticalScroller = AsyncComponent.from(
-  getModuleByDisplayName('VerticalScroller')
-);
-
-const Genders = ['Male', 'Female', 'Nonbinary', 'Undisclosed'];
 
 class Section extends React.PureComponent {
   constructor(props) {
@@ -94,7 +87,6 @@ module.exports = class DiscordRep extends React.PureComponent {
   render() {
     const moment = getModule(['momentProperties'], false);
     const { rep, error, streamerMode } = this.state;
-    const { getSetting } = this.props;
 
     if (streamerMode) {
       return (
@@ -143,7 +135,7 @@ module.exports = class DiscordRep extends React.PureComponent {
       /* </dumbcode> */
 
       return (
-        <VerticalScroller className='discordrep' fade={true}>
+        <div className='discordrep' fade={true}>
           <Flex justify={Flex.Justify.START} wrap={Flex.Wrap.WRAP}>
             <Section title='Staff'>{staff ? "Yes" : "No"}</Section>
             <Section title='XP'>{xp.toString()}</Section>
@@ -152,7 +144,7 @@ module.exports = class DiscordRep extends React.PureComponent {
             <Section title='Downvotes'>{downvotes.toString()}</Section>
             <Section title='Up/Down'>{uv == NaN ? "0" : uv.toString()}</Section>
           </Flex>
-        </VerticalScroller>
+        </div>
       );
     }
   }
