@@ -60,8 +60,8 @@ module.exports = class PowerRep extends Plugin {
     inject('discordrep-user-tab-bar', UserProfileBody.prototype, 'renderTabBar', function (_, res) {
       const { user } = this.props;
   
-      //Don't bother rendering if there's no tab bar, user or if the user is a bot
-      if (!res || !user || user.bot) return res;
+      //Don't bother rendering if there's no tab bar or user
+      if (!res || !user) return res;
   
       //Create discord.bio tab bar item
       const repTab = React.createElement(TabBar.Item, {
