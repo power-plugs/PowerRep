@@ -126,8 +126,6 @@ module.exports = class DiscordRep extends React.PureComponent {
       let uv = 0;
       if(upvotes == 0 && downvotes == 0)
         uv = 0;
-      else if(upvotes == 0)
-        uv = downvotes;
       else if(downvotes == 0)
         uv = upvotes;
       else
